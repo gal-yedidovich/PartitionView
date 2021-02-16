@@ -7,10 +7,10 @@
 
 import SwiftUI
 public struct DefaultPartitionStyle: PartitionStyle {
-	public func makeBody(configuration: Configuration) -> some View {
-		let values = configuration.values
-		let radius = configuration.radius
-		let borderColor = configuration.borderColor
+	public func makeBody(configuration config: Configuration) -> some View {
+		let values = config.values
+		let radius = config.radius
+		let borderColor = config.borderColor
 		
 		return GeometryReader { geo in
 			HStack(spacing: 0) {

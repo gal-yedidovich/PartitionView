@@ -11,17 +11,17 @@ public struct PieParitionStyle: PartitionStyle {
 	public var clockwise = true
 	
 	@ViewBuilder
-	public func makeBody(configuration: Configuration) -> some View {
-		if configuration.values.isEmpty {
+	public func makeBody(configuration config: Configuration) -> some View {
+		if config.values.isEmpty {
 			Circle().foregroundColor(Color.gray.opacity(0.8))
 		} else {
-			let parts = buildAngles(configuration)
+			let parts = buildAngles(config)
 			ZStack {
 				ForEach(0..<parts.count, id: \.self) { i in
 					let pie = PiePart(range: parts[i], clockwise: clockwise)
 					
-					pie.foregroundColor(configuration.values[i].color)
-						.overlay(pie.strokeBorder(lineWidth: 1).foregroundColor(configuration.borderColor))
+					pie.foregroundColor(config.values[i].color)
+						.overlay(pie.strokeBorder(lineWidth: 1).foregroundColor(config.borderColor))
 						.transition(transition)
 				}
 			}
@@ -36,13 +36,13 @@ public struct PieParitionStyle: PartitionStyle {
 		)
 	}
 	
-	private func buildAngles(_ config: Configuration) -> [AngleRange] {
-		var parts: [AngleRange] = []
+	private func buildAngles(_ config: Configuration) -> [PartitionRange] {
+		var parts: [PartitionRange] = []
 		
 		var current = pivot
 		for value in config.values {
 			let end = value.value
-			parts.append(AngleRange(start: current, end: current + end))
+			parts.append(PartitionRange(start: current, end: current + end))
 			current += end
 		}
 		
@@ -50,19 +50,19 @@ public struct PieParitionStyle: PartitionStyle {
 	}
 	
 	private struct PiePart: InsettableShape {
-		var range: AngleRange
+		var range: PartitionRange
 		let clockwise: Bool
 		var insetAmount: CGFloat = 0
 		
 		func path(in rect: CGRect) -> Path {
-			let r = min(rect.size.width, rect.size.height) / 2
+			let radius = min(rect.size.width, rect.size.height) / 2
 			let center = CGPoint(x: rect.midX, y: rect.midY)
 			return Path { path in
 				path.move(to: center)
 				
 				let adj = Angle(degrees: 90)
 				path.addArc(center: center,
-							radius: r - insetAmount,
+							radius: radius - insetAmount,
 							startAngle: range.start.angle - adj,
 							endAngle: range.end.angle - adj,
 							clockwise: !clockwise
@@ -86,11 +86,6 @@ public struct PieParitionStyle: PartitionStyle {
 				range.end = newValue.second
 			}
 		}
-	}
-	
-	private struct AngleRange {
-		var start: CGFloat
-		var end: CGFloat
 	}
 }
 

@@ -38,22 +38,17 @@ public struct OvalPartitionStyle: PartitionStyle {
 		}
 	}
 	
-	private func buildParts(_ config: Configuration) -> [TrimRange] {
-		var parts: [TrimRange] = []
+	private func buildParts(_ config: Configuration) -> [PartitionRange] {
+		var parts: [PartitionRange] = []
 
 		var current: CGFloat = .zero
 		for partition in config.values {
 			let end = partition.value
-			parts.append(TrimRange(start: current, end: current + end))
+			parts.append(PartitionRange(start: current, end: current + end))
 			current += end
 		}
 		
 		return parts
-	}
-	
-	private struct TrimRange {
-		var start: CGFloat
-		var end: CGFloat
 	}
 }
 

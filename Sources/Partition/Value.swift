@@ -13,3 +13,5 @@ public extension Partition {
 		public let color: Color
 	}
 }
+
+internal typealias PartitionRange = (start: CGFloat, end: CGFloat)
