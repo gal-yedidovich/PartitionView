@@ -42,8 +42,8 @@ public struct OvalPartitionBarStyle: PartitionBarStyle {
 		var parts: [TrimRange] = []
 
 		var current: CGFloat = .zero
-		for (_, value) in config.values.enumerated() {
-			let end = value.value
+		for partition in config.values {
+			let end = partition.value
 			parts.append(TrimRange(start: current, end: current + end))
 			current += end
 		}
@@ -80,8 +80,8 @@ fileprivate struct TrimmedOval: Shape {
 	}
 }
 
-fileprivate struct ClipShapeModifier<T: Shape>: ViewModifier {
-	let shape: T
+fileprivate struct ClipShapeModifier<ClipShape: Shape>: ViewModifier {
+	let shape: ClipShape
 	
 	func body(content: Content) -> some View {
 		content.clipShape(shape)
@@ -147,7 +147,7 @@ struct OvalPartitionBarStyle_Previews: PreviewProvider {
 				]
 			VStack {
 				PartitionBar(values)
-					.partitionBarStyle(OvalPartitionBarStyle(lineWidth: 5))
+					.partitionBarStyle(OvalPartitionBarStyle(lineWidth: 10))
 					.contentShape(Circle())
 				
 				Spacer()
