@@ -18,21 +18,30 @@ public struct PieParitionBarStyle: PartitionBarStyle {
 			let parts = buildAngles(configuration)
 			ZStack {
 				ForEach(0..<parts.count, id: \.self) { i in
-					let pie = PiePart(start: parts[i].start, end: parts[i].end, clockwise: clockwise)
+					let pie = PiePart(range: parts[i], clockwise: clockwise)
 					
 					pie.foregroundColor(configuration.values[i].color)
 						.overlay(pie.strokeBorder(lineWidth: 1).foregroundColor(configuration.borderColor))
+						.transition(transition)
 				}
 			}
 		}
 	}
 	
+	private var transition: AnyTransition {
+		let anim = Animation.default.delay(0.15)
+		return AnyTransition.asymmetric(
+			insertion: AnyTransition.scale.animation(anim),
+			removal: AnyTransition.opacity.animation(anim)
+		)
+	}
+	
 	private func buildAngles(_ config: Configuration) -> [AngleRange] {
 		var parts: [AngleRange] = []
 		
-		var current = pivot.angle
+		var current = pivot
 		for value in config.values {
-			let end = value.value.angle
+			let end = value.value
 			parts.append(AngleRange(start: current, end: current + end))
 			current += end
 		}
@@ -41,8 +50,7 @@ public struct PieParitionBarStyle: PartitionBarStyle {
 	}
 	
 	private struct PiePart: InsettableShape {
-		let start: Angle
-		let end: Angle
+		var range: AngleRange
 		let clockwise: Bool
 		var insetAmount: CGFloat = 0
 		
@@ -55,10 +63,11 @@ public struct PieParitionBarStyle: PartitionBarStyle {
 				let adj = Angle(degrees: 90)
 				path.addArc(center: center,
 							radius: r - insetAmount,
-							startAngle: start - adj,
-							endAngle: end - adj,
+							startAngle: range.start.angle - adj,
+							endAngle: range.end.angle - adj,
 							clockwise: !clockwise
 				)
+				
 				
 				path.closeSubpath()
 			}
@@ -69,11 +78,19 @@ public struct PieParitionBarStyle: PartitionBarStyle {
 			copy.insetAmount += amount
 			return copy
 		}
+		
+		var animatableData: AnimatablePair<CGFloat, CGFloat> {
+			get { AnimatablePair(range.start, range.end) }
+			set {
+				range.start = newValue.first
+				range.end = newValue.second
+			}
+		}
 	}
 	
 	private struct AngleRange {
-		let start: Angle
-		let end: Angle
+		var start: CGFloat
+		var end: CGFloat
 	}
 }
 
@@ -109,9 +126,36 @@ struct PieParitionBarStyle_Previews: PreviewProvider {
 			])
 			.border(.clear)
 			.partitionBarStyle(PieParitionBarStyle(pivot: 0.3))
+			
+			AnimatedPieExample()
 		}
 		.partitionBarStyle(PieParitionBarStyle())
 		.frame(width: 100, height: 100)
 		.padding(10)
+	}
+	
+	private struct AnimatedPieExample: View {
+		@State var expended = true
+		
+		var body: some View {
+			let values = expended
+				? [
+					Partition(value: 0.2, color: .red),
+					Partition(value: 0.4, color: .green),
+					Partition(value: 0.4, color: .yellow)
+				]
+				: [
+					Partition(value: 0.9, color: .red),
+					Partition(value: 0.1, color: .blue)
+				]
+			PartitionBar(values)
+				.partitionBarStyle(PieParitionBarStyle())
+				.contentShape(Circle())
+				.onTapGesture {
+					withAnimation {
+						expended.toggle()
+					}
+				}
+		}
 	}
 }

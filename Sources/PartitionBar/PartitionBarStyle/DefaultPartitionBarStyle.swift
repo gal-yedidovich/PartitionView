@@ -21,17 +21,13 @@ public struct DefaultPartitionBarStyle: PartitionBarStyle {
 					let width = geo.size.width - CGFloat(values.count - 1)
 					
 					let first = values[0]
-					Rectangle()
-						.foregroundColor(first.color)
-						.frame(maxWidth: width * first.value)
+					first.color.frame(maxWidth: width * first.value)
 					
 					ForEach(values.dropFirst()) { value in
 						Divider()
 							.background(borderColor)
 						
-						Rectangle()
-							.foregroundColor(value.color)
-							.frame(maxWidth: width * value.value)
+						value.color.frame(maxWidth: width * value.value)
 					}
 				}
 			}
