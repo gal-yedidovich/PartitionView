@@ -36,5 +36,7 @@ struct PartitionBar_Previews: PreviewProvider {
 		DefaultPartitionBarStyle_Previews.previews
 		
 		PieParitionBarStyle_Previews.previews
+		
+		OvalPartitionBarStyle_Previews.previews
 	}
 }
