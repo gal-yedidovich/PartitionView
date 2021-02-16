@@ -1,12 +1,12 @@
 //
-//  DefaultPartitionBarStyle.swift
+//  DefaultPartitionStyle.swift
 //  
 //
 //  Created by Gal Yedidovich on 15/02/2021.
 //
 
 import SwiftUI
-public struct DefaultPartitionBarStyle: PartitionBarStyle {
+public struct DefaultPartitionStyle: PartitionStyle {
 	public func makeBody(configuration: Configuration) -> some View {
 		let values = configuration.values
 		let radius = configuration.radius
@@ -44,31 +44,31 @@ public struct DefaultPartitionBarStyle: PartitionBarStyle {
 struct DefaultPartitionBarStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			PartitionBar([])
+			Partition([])
 				.frame(width: 200, height: 30)
-			PartitionBar([
-				Partition(value: 0.5, color: .red),
-				Partition(value: 0.5, color: .secondary),
+			Partition([
+				.init(value: 0.5, color: .red),
+				.init(value: 0.5, color: .secondary),
 			])
 			.frame(width: 200, height: 30)
 			
-			PartitionBar([
-				Partition(value: 0.5, color: .red),
-				Partition(value: 0.5, color: .primary),
+			Partition([
+				.init(value: 0.5, color: .red),
+				.init(value: 0.5, color: .primary),
 			])
 			.border(.clear)
 			.frame(width: 200, height: 40)
 			
-			PartitionBar([
-				Partition(value: 0.8, color: .blue),
+			Partition([
+				.init(value: 0.8, color: .blue),
 			])
 			.cornerRadius(0)
 			.frame(width: 200, height: 30)
 			
-			PartitionBar([
-				Partition(value: 0.4, color: .green),
-				Partition(value: 0.4, color: .yellow),
-				Partition(value: 0.3, color: .red),
+			Partition([
+				.init(value: 0.4, color: .green),
+				.init(value: 0.4, color: .yellow),
+				.init(value: 0.3, color: .red),
 			])
 			.frame(width: 200, height: 20)
 		}

@@ -3,11 +3,10 @@
 
 import PackageDescription
 
-let partitionBar = "PartitionBar"
-
+let name = "Partition"
 let package = Package(
-	name: partitionBar,
+	name: name,
 	platforms: [.iOS(.v13), .macOS(.v10_15)],
-	products: [.library(name: partitionBar, targets: [partitionBar])],
-	targets: [.target(name: partitionBar)]
+	products: [.library(name: name, targets: [name])],
+	targets: [.target(name: name)]
 )

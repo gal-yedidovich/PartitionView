@@ -1,16 +1,16 @@
 //
-//  PartitionBar.swift
+//  Partition.swift
 //  
 //
 //  Created by Gal Yedidovich on 12/02/2021.
 //
 
 import SwiftUI
-public struct PartitionBar: View {
-	private var config: PartitionBarStyleConfiguration
-	@Environment(\.partitionBarStyle) var style: AnyPartitionBarStyle
+public struct Partition: View {
+	private var config: PartitionStyleConfiguration
+	@Environment(\.partitionBarStyle) var style: AnyPartitionStyle
 	
-	public init(_ values: [Partition]) {
+	public init(_ values: [Value]) {
 		config = .init(values: values)
 	}
 	
@@ -18,13 +18,13 @@ public struct PartitionBar: View {
 		style.makeBody(configuration: config)
 	}
 	
-	public func border(_ color: Color) -> PartitionBar {
+	public func border(_ color: Color) -> Partition {
 		var copy = self
 		copy.config.borderColor = color
 		return copy
 	}
 	
-	public func cornerRadius(_ value: CGFloat) -> PartitionBar {
+	public func cornerRadius(_ value: CGFloat) -> Partition {
 		var copy = self
 		copy.config.radius = value
 		return copy

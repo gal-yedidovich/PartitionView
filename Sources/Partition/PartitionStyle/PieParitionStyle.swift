@@ -1,12 +1,12 @@
 //
-//  PieParitionBarStyle.swift
+//  PieParitionStyle.swift
 //  
 //
 //  Created by Gal Yedidovich on 15/02/2021.
 //
 
 import SwiftUI
-public struct PieParitionBarStyle: PartitionBarStyle {
+public struct PieParitionStyle: PartitionStyle {
 	public var pivot: CGFloat = 0
 	public var clockwise = true
 	
@@ -103,33 +103,33 @@ fileprivate extension CGFloat {
 struct PieParitionBarStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			PartitionBar([])
+			Partition([])
 			
-			PartitionBar([
-				Partition(value: 0.4, color: .green),
-				Partition(value: 0.6, color: .orange),
+			Partition([
+				.init(value: 0.4, color: .green),
+				.init(value: 0.6, color: .orange),
 			])
 			
-			PartitionBar([
-				Partition(value: 0.33, color: .red),
-				Partition(value: 0.34, color: .white),
-				Partition(value: 0.33, color: .blue),
+			Partition([
+				.init(value: 0.33, color: .red),
+				.init(value: 0.34, color: .white),
+				.init(value: 0.33, color: .blue),
 			])
 			
-			PartitionBar([
-				Partition(value: 0.8, color: .purple),
+			Partition([
+				.init(value: 0.8, color: .purple),
 			])
-			.partitionBarStyle(PieParitionBarStyle(clockwise: false))
+			.partitionBarStyle(PieParitionStyle(clockwise: false))
 			
-			PartitionBar([
-				Partition(value: 0.9, color: .yellow),
+			Partition([
+				.init(value: 0.9, color: .yellow),
 			])
 			.border(.clear)
-			.partitionBarStyle(PieParitionBarStyle(pivot: 0.3))
+			.partitionBarStyle(PieParitionStyle(pivot: 0.3))
 			
 			AnimatedPieExample()
 		}
-		.partitionBarStyle(PieParitionBarStyle())
+		.partitionBarStyle(PieParitionStyle())
 		.frame(width: 100, height: 100)
 		.padding(10)
 	}
@@ -138,18 +138,18 @@ struct PieParitionBarStyle_Previews: PreviewProvider {
 		@State var expended = true
 		
 		var body: some View {
-			let values = expended
+			let values: [Partition.Value] = expended
 				? [
-					Partition(value: 0.2, color: .red),
-					Partition(value: 0.4, color: .green),
-					Partition(value: 0.4, color: .yellow)
+					.init(value: 0.2, color: .red),
+					.init(value: 0.4, color: .green),
+					.init(value: 0.4, color: .yellow)
 				]
 				: [
-					Partition(value: 0.9, color: .red),
-					Partition(value: 0.1, color: .blue)
+					.init(value: 0.9, color: .red),
+					.init(value: 0.1, color: .blue)
 				]
-			PartitionBar(values)
-				.partitionBarStyle(PieParitionBarStyle())
+			Partition(values)
+				.partitionBarStyle(PieParitionStyle())
 				.contentShape(Circle())
 				.onTapGesture {
 					withAnimation {
