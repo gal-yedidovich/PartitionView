@@ -114,17 +114,17 @@ struct PieParitionBarStyle_Previews: PreviewProvider {
 			Partition([
 				.init(value: 0.8, color: .purple),
 			])
-			.partitionBarStyle(PieParitionStyle(clockwise: false))
+			.partitionStyle(PieParitionStyle(clockwise: false))
 			
 			Partition([
 				.init(value: 0.9, color: .yellow),
 			])
 			.border(.clear)
-			.partitionBarStyle(PieParitionStyle(pivot: 0.3))
+			.partitionStyle(PieParitionStyle(pivot: 0.3))
 			
 			AnimatedPieExample()
 		}
-		.partitionBarStyle(PieParitionStyle())
+		.partitionStyle(PieParitionStyle())
 		.frame(width: 100, height: 100)
 		.padding(10)
 	}
@@ -144,7 +144,7 @@ struct PieParitionBarStyle_Previews: PreviewProvider {
 					.init(value: 0.1, color: .blue)
 				]
 			Partition(values)
-				.partitionBarStyle(PieParitionStyle())
+				.partitionStyle(PieParitionStyle())
 				.contentShape(Circle())
 				.onTapGesture {
 					withAnimation {

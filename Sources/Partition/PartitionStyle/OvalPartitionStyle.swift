@@ -116,13 +116,13 @@ struct OvalPartitionBarStyle_Previews: PreviewProvider {
 				.init(value: 0.9, color: .yellow),
 			])
 			.border(.clear)
-			.partitionBarStyle(OvalPartitionStyle())
+			.partitionStyle(OvalPartitionStyle())
 			
 			AnimatedOvalExample()
 		}
 		.padding(10)
 		.frame(width: 100, height: 100)
-		.partitionBarStyle(OvalPartitionStyle())
+		.partitionStyle(OvalPartitionStyle())
 	}
 	
 	private struct AnimatedOvalExample: View {
@@ -142,7 +142,7 @@ struct OvalPartitionBarStyle_Previews: PreviewProvider {
 				]
 			VStack {
 				Partition(values)
-					.partitionBarStyle(OvalPartitionStyle(lineWidth: 10))
+					.partitionStyle(OvalPartitionStyle(lineWidth: 10))
 					.contentShape(Circle())
 				
 				Spacer()
