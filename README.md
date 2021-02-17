@@ -49,3 +49,6 @@ Partition(values)
 ```
 
 Other available styles:  `DefaultPartitionStyle`, `OvalPartitionStyle`
+
+
+> Other examples are available in the source code's previews [link](https://github.com/gal-yedidovich/PartitionView/blob/main/Sources/Partition/Partition.swift)

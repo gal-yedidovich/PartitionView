@@ -95,7 +95,7 @@ fileprivate extension CGFloat {
 	}
 }
 
-struct PieParitionBarStyle_Previews: PreviewProvider {
+struct PieParitionStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			Partition([])

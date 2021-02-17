@@ -8,7 +8,7 @@
 import SwiftUI
 public struct Partition: View {
 	private var config: PartitionStyleConfiguration
-	@Environment(\.partitionBarStyle) var style: AnyPartitionStyle
+	@Environment(\.partitionStyle) var style: AnyPartitionStyle
 	
 	public init(_ values: [Value]) {
 		config = .init(values: values)
@@ -25,12 +25,12 @@ public struct Partition: View {
 	}
 }
 
-struct PartitionBar_Previews: PreviewProvider {
+struct Partition_Previews: PreviewProvider {
 	static var previews: some View {
-		DefaultPartitionBarStyle_Previews.previews
+		DefaultPartitionStyle_Previews.previews
 		
-		PieParitionBarStyle_Previews.previews
+		PieParitionStyle_Previews.previews
 		
-		OvalPartitionBarStyle_Previews.previews
+		OvalPartitionStyle_Previews.previews
 	}
 }

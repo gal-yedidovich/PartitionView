@@ -42,7 +42,7 @@ public struct DefaultPartitionStyle: PartitionStyle {
 	}
 }
 
-struct DefaultPartitionBarStyle_Previews: PreviewProvider {
+struct DefaultPartitionStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			Partition([])

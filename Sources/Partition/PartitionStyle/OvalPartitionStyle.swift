@@ -92,7 +92,7 @@ fileprivate extension AnyTransition {
 	}
 }
 
-struct OvalPartitionBarStyle_Previews: PreviewProvider {
+struct OvalPartitionStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			Partition([])

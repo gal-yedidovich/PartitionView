@@ -44,7 +44,7 @@ public struct PartitionStyleConfiguration {
 	public var borderColor: Color = .primary
 }
 
-/// Type Erased PartitionBarStyle
+/// Type Erased PartitionStyle
 public struct AnyPartitionStyle: PartitionStyle {
 	private let _makeBody: (PartitionStyle.Configuration) -> AnyView
 	

@@ -8,7 +8,7 @@
 import SwiftUI
 public extension EnvironmentValues {
 	/// The partition style for this environment
-	var partitionBarStyle: AnyPartitionStyle {
+	var partitionStyle: AnyPartitionStyle {
 		get { self[PartitionKey.self] }
 		set { self[PartitionKey.self] = newValue }
 	}
@@ -24,6 +24,6 @@ extension View {
 	/// - Parameter style: a partition style
 	/// - Returns: new view including the set
 	public func partitionStyle<Style>(_ style: Style) -> some View where Style: PartitionStyle {
-		self.environment(\.partitionBarStyle, AnyPartitionStyle(style))
+		self.environment(\.partitionStyle, AnyPartitionStyle(style))
 	}
 }
