@@ -26,13 +26,15 @@ public struct OvalPartitionStyle: PartitionStyle {
 					let start = parts[index].start
 					let end = parts[index].end
 					
+					let transision = AnyTransition.ovalClip(lineWidth: lineWidth, start: start, end: end).animation(.default)
+					
 					Circle()
+						.rotation(.degrees(-90))
 						.trim(from: start, to: end)
 						.stroke(lineWidth: lineWidth)
-						.rotationEffect(.degrees(-90))
 						.foregroundColor(config.values[index].color)
 						.padding(lineWidth / 2)
-						.transition(AnyTransition.ovalClip(lineWidth: lineWidth, start: start, end: end).animation(.default))
+						.transition(transision)
 						.zIndex(Double(index))
 				}
 			}
