@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+/// The default style, presents the data in a horizontal bar.
 public struct DefaultPartitionStyle: PartitionStyle {
 	public var radius: CGFloat = 8
 	

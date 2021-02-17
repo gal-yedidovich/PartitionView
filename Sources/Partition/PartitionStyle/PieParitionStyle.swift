@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+/// Presents the data in a a pie chart
 public struct PieParitionStyle: PartitionStyle {
 	public var pivot: CGFloat = 0
 	public var clockwise = true
@@ -90,9 +91,7 @@ public struct PieParitionStyle: PartitionStyle {
 }
 
 fileprivate extension CGFloat {
-	var angle: Angle {
-		Angle(degrees: Double(self) * 360)
-	}
+	var angle: Angle { .degrees(Double(self) * 360) }
 }
 
 struct PieParitionStyle_Previews: PreviewProvider {
