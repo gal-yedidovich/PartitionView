@@ -11,6 +11,11 @@ public extension Partition {
 		public let id = UUID()
 		public let value: CGFloat
 		public let color: Color
+		
+		public init(value: CGFloat, color: Color) {
+			self.value = value
+			self.color = color
+		}
 	}
 }
 
