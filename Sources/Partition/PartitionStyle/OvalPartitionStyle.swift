@@ -72,7 +72,7 @@ fileprivate struct TrimmedOval: Shape {
 	func path(in rect: CGRect) -> Path {
 		return Circle()
 			.rotation(.degrees(-90))
-			.trim(from: start, to: end)
+			.trim(from: start - 0.01, to: end + 0.01)
 			.stroke(lineWidth: lineWidth * 2)
 			.path(in: rect)
 	}
