@@ -30,7 +30,7 @@ public struct PieParitionStyle: PartitionStyle {
 	}
 	
 	private var transition: AnyTransition {
-		let anim = Animation.default.delay(0.15)
+		let anim = Animation.default.delay(0.25)
 		return AnyTransition.asymmetric(
 			insertion: AnyTransition.scale.animation(anim),
 			removal: AnyTransition.opacity.animation(anim)
