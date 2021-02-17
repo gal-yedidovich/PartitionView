@@ -41,7 +41,6 @@ internal extension PartitionStyle {
 /// The properties of a Partition.
 public struct PartitionStyleConfiguration {
 	public let values: [Partition.Value]
-	public var radius: CGFloat = 8
 	public var borderColor: Color = .primary
 }
 

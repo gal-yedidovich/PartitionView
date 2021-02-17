@@ -7,9 +7,10 @@
 
 import SwiftUI
 public struct DefaultPartitionStyle: PartitionStyle {
+	public var radius: CGFloat = 8
+	
 	public func makeBody(configuration config: Configuration) -> some View {
 		let values = config.values
-		let radius = config.radius
 		let borderColor = config.borderColor
 		
 		return GeometryReader { geo in
@@ -62,7 +63,7 @@ struct DefaultPartitionBarStyle_Previews: PreviewProvider {
 			Partition([
 				.init(value: 0.8, color: .blue),
 			])
-			.cornerRadius(0)
+			.partitionStyle(DefaultPartitionStyle(radius: 0))
 			.frame(width: 200, height: 30)
 			
 			Partition([

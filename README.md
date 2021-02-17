@@ -32,11 +32,10 @@ let values: [Partition.Value] = [
 
 Partition(values)
 	.border(.clear) //sets the color of the border
-	.cornerRadius(0) //sets the corner raduis of the view
 	.frame(width: 200, height: 30)
 ```
 
-#### Styles
+### Styles
 ```swift
 let values: [Partition.Value] = [
 	.init(value: 0.25, color: .yellow),
@@ -48,3 +47,5 @@ Partition(values)
 	.partitionStyle(PieParitionStyle()) //presents the data as a "Pie chart"
 	.frame(width: 100, height: 100)
 ```
+
+Other available styles:  `DefaultPartitionStyle`, `OvalPartitionStyle`

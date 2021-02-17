@@ -23,12 +23,6 @@ public struct Partition: View {
 		copy.config.borderColor = color
 		return copy
 	}
-	
-	public func cornerRadius(_ value: CGFloat) -> Partition {
-		var copy = self
-		copy.config.radius = value
-		return copy
-	}
 }
 
 struct PartitionBar_Previews: PreviewProvider {
