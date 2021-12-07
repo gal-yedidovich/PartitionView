@@ -13,7 +13,7 @@ public struct OvalPartitionStyle: PartitionStyle {
 	@ViewBuilder
 	public func makeBody(configuration config: Configuration) -> some View {
 		if config.values.isEmpty {
-			let color = config.values.first?.color ?? Color.gray.opacity(0.8)
+			let color = Color.gray.opacity(0.8)
 			Circle()
 				.stroke(lineWidth: lineWidth)
 				.foregroundColor(color)
@@ -30,7 +30,6 @@ public struct OvalPartitionStyle: PartitionStyle {
 					
 					Circle()
 						.rotation(.degrees(-90))
-						.trim(from: start, to: end)
 						.stroke(lineWidth: lineWidth)
 						.foregroundColor(config.values[index].color)
 						.padding(lineWidth / 2)
@@ -72,7 +71,7 @@ fileprivate struct TrimmedOval: Shape {
 	func path(in rect: CGRect) -> Path {
 		return Circle()
 			.rotation(.degrees(-90))
-			.trim(from: start - 0.01, to: end + 0.01)
+			.trim(from: start, to: end)
 			.stroke(lineWidth: lineWidth * 2)
 			.path(in: rect)
 	}
@@ -112,11 +111,19 @@ struct OvalPartitionStyle_Previews: PreviewProvider {
 			])
 			
 			Partition([
+				.init(value: 0.25, color: .red),
+				.init(value: 0.25, color: .white),
+				.init(value: 0.25, color: .blue),
+				.init(value: 0.25, color: .blue),
+			])
+			
+			Partition([
 				.init(value: 0.8, color: .purple),
 			])
 			
 			Partition([
-				.init(value: 0.9, color: .yellow),
+				.init(value: 0.25, color: .yellow),
+				.init(value: 0.25, color: .red),
 			])
 			
 			AnimatedOvalExample()
