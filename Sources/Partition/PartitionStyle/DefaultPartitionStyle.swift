@@ -64,7 +64,7 @@ struct DefaultPartitionStyle_Previews: PreviewProvider {
 			Partition([
 				.init(value: 0.8, color: .blue),
 			])
-			.partitionStyle(DefaultPartitionStyle(radius: 0))
+				.partitionStyle(.default(radius: 0))
 			.frame(width: 200, height: 30)
 			
 			Partition([

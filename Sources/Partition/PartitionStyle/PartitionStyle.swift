@@ -12,9 +12,7 @@ import SwiftUI
 ///
 /// To configure the current parition style for a view hierarchy, use the
 /// ``View/partitionStyle(_:)`` modifier. Specify a style that conforms to
-/// ``PartitionStyle`` when creating a button that uses the standard button
-/// interaction behavior defined for each platform. To create a button with
-/// custom interaction behavior, use ``PrimitiveButtonStyle`` instead.
+/// ``PartitionStyle`` when using partition
 public protocol PartitionStyle {
 	
 	/// A view that Represents the body of the partition
@@ -54,5 +52,32 @@ public struct AnyPartitionStyle: PartitionStyle {
 	
 	public func makeBody(configuration: PartitionStyle.Configuration) -> AnyView {
 		self._makeBody(configuration)
+	}
+}
+
+//MARK: - static style functions
+
+public extension PartitionStyle where Self == DefaultPartitionStyle {
+	/// A partition style that present values in a horizontal bar
+	/// - Parameter radius: corner radius
+	static func `default`(radius: CGFloat = 8) -> DefaultPartitionStyle {
+		DefaultPartitionStyle(radius: radius)
+	}
+}
+
+public extension PartitionStyle where Self == OvalPartitionStyle {
+	/// A partition style that present values in an oval stoke
+	/// - Parameter lineWidth: thickness of the stroke
+	static func oval(lineWidth: CGFloat = 15) -> OvalPartitionStyle {
+		OvalPartitionStyle(lineWidth: lineWidth)
+	}
+}
+
+public extension PartitionStyle where Self == PieParitionStyle {
+	/// A partition style that present values in a pie chart
+	/// - Parameter pivot: start angle of the first partition
+	/// - Parameter clockwise: direction of partitions, tur is clockwise.
+	static func pie(pivot: CGFloat = 0, clockwise: Bool = true) -> PieParitionStyle {
+		PieParitionStyle(pivot: pivot, clockwise: clockwise)
 	}
 }
