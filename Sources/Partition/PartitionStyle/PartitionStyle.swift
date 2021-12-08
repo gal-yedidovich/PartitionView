@@ -57,11 +57,11 @@ public struct AnyPartitionStyle: PartitionStyle {
 
 //MARK: - static style functions
 
-public extension PartitionStyle where Self == DefaultPartitionStyle {
+public extension PartitionStyle where Self == HorizontalBarPartitionStyle {
 	/// A partition style that present values in a horizontal bar
 	/// - Parameter radius: corner radius
-	static func `default`(radius: CGFloat = 8) -> DefaultPartitionStyle {
-		DefaultPartitionStyle(radius: radius)
+	static func horizontalBar(radius: CGFloat = 8) -> HorizontalBarPartitionStyle {
+		HorizontalBarPartitionStyle(radius: radius)
 	}
 }
 

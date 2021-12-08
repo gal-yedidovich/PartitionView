@@ -16,7 +16,7 @@ public extension EnvironmentValues {
 
 /// The environment key of partition style
 public struct PartitionKey: EnvironmentKey {
-	public static let defaultValue: AnyPartitionStyle = AnyPartitionStyle(DefaultPartitionStyle())
+	public static let defaultValue: AnyPartitionStyle = AnyPartitionStyle(HorizontalBarPartitionStyle())
 }
 
 extension View {

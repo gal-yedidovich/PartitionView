@@ -1,5 +1,5 @@
 //
-//  DefaultPartitionStyle.swift
+//  HorizontalBarPartitionStyle.swift
 //  
 //
 //  Created by Gal Yedidovich on 15/02/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 /// The default style, presents the data in a horizontal bar.
-public struct DefaultPartitionStyle: PartitionStyle {
+public struct HorizontalBarPartitionStyle: PartitionStyle {
 	public var radius: CGFloat = 8
 	
 	public func makeBody(configuration config: Configuration) -> some View {
@@ -64,7 +64,7 @@ struct DefaultPartitionStyle_Previews: PreviewProvider {
 			Partition([
 				.init(value: 0.8, color: .blue),
 			])
-				.partitionStyle(.default(radius: 0))
+				.partitionStyle(.horizontalBar(radius: 0))
 			.frame(width: 200, height: 30)
 			
 			Partition([
