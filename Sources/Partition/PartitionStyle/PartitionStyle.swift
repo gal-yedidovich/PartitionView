@@ -65,6 +65,14 @@ public extension PartitionStyle where Self == DefaultPartitionStyle {
 	}
 }
 
+public extension PartitionStyle where Self == VerticalBarPartitionStyle {
+	/// A partition style that present values in a vertical bar
+	/// - Parameter radius: corner radius
+	static func verticalBar(radius: CGFloat = 8) -> VerticalBarPartitionStyle {
+		VerticalBarPartitionStyle(radius: radius)
+	}
+}
+
 public extension PartitionStyle where Self == OvalPartitionStyle {
 	/// A partition style that present values in an oval stoke
 	/// - Parameter lineWidth: thickness of the stroke
