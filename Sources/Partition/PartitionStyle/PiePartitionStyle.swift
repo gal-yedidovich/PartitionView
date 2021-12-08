@@ -1,5 +1,5 @@
 //
-//  PieParitionStyle.swift
+//  PiePartitionStyle.swift
 //  
 //
 //  Created by Gal Yedidovich on 15/02/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 /// Presents the data in a a pie chart
-public struct PieParitionStyle: PartitionStyle {
+public struct PiePartitionStyle: PartitionStyle {
 	public var pivot: CGFloat = 0
 	public var clockwise = true
 	

@@ -73,11 +73,11 @@ public extension PartitionStyle where Self == OvalPartitionStyle {
 	}
 }
 
-public extension PartitionStyle where Self == PieParitionStyle {
+public extension PartitionStyle where Self == PiePartitionStyle {
 	/// A partition style that present values in a pie chart
 	/// - Parameter pivot: start angle of the first partition
 	/// - Parameter clockwise: direction of partitions, tur is clockwise.
-	static func pie(pivot: CGFloat = 0, clockwise: Bool = true) -> PieParitionStyle {
-		PieParitionStyle(pivot: pivot, clockwise: clockwise)
+	static func pie(pivot: CGFloat = 0, clockwise: Bool = true) -> PiePartitionStyle {
+		PiePartitionStyle(pivot: pivot, clockwise: clockwise)
 	}
 }
