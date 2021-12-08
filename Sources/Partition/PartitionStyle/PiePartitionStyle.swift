@@ -94,7 +94,7 @@ fileprivate extension CGFloat {
 	var angle: Angle { .degrees(Double(self) * 360) }
 }
 
-struct PieParitionStyle_Previews: PreviewProvider {
+struct PiePartitionStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			Partition([])
