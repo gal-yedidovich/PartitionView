@@ -43,7 +43,7 @@ public struct HorizontalBarPartitionStyle: PartitionStyle {
 	}
 }
 
-struct DefaultPartitionStyle_Previews: PreviewProvider {
+struct HotizontalBarPartitionStyle_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			Partition([])

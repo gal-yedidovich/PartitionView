@@ -27,10 +27,12 @@ public struct Partition: View {
 
 struct Partition_Previews: PreviewProvider {
 	static var previews: some View {
-		DefaultPartitionStyle_Previews.previews
+		HotizontalBarPartitionStyle_Previews.previews
 		
 		PiePartitionStyle_Previews.previews
 		
 		OvalPartitionStyle_Previews.previews
+		
+		VerticalBarPartitionStyle_Previews.previews
 	}
 }
