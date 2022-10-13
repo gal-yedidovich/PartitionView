@@ -16,14 +16,14 @@ public extension EnvironmentValues {
 
 /// The environment key of partition style
 public struct PartitionKey: EnvironmentKey {
-	public static let defaultValue: AnyPartitionStyle = AnyPartitionStyle(HorizontalBarPartitionStyle())
+	public static let defaultValue: AnyPartitionStyle = .init(HorizontalBarPartitionStyle())
 }
 
 extension View {
 	/// Sets the style for partitions within this view to a partition style with a custom appearance and custom interaction behavior.
 	/// - Parameter style: a partition style
 	/// - Returns: new view including the set
-	public func partitionStyle<Style>(_ style: Style) -> some View where Style: PartitionStyle {
+	public func partitionStyle(_ style: some PartitionStyle) -> some View {
 		self.environment(\.partitionStyle, AnyPartitionStyle(style))
 	}
 }

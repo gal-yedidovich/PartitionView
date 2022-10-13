@@ -19,7 +19,7 @@ public struct VerticalBarPartitionStyle: PartitionStyle {
 			VStack(spacing: 0) {
 				if values.isEmpty {
 					Rectangle()
-						.foregroundColor(Color.gray.opacity(0.8))
+						.foregroundColor(.gray.opacity(0.8))
 				} else {
 					let width = geo.size.height - CGFloat(values.count - 1)
 					

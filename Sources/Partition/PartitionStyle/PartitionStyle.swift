@@ -30,12 +30,6 @@ public protocol PartitionStyle {
 	typealias Configuration = PartitionStyleConfiguration
 }
 
-internal extension PartitionStyle {
-	func makeBodyTypeErased(configuration: Self.Configuration) -> AnyView {
-		AnyView(self.makeBody(configuration: configuration))
-	}
-}
-
 /// The properties of a Partition.
 public struct PartitionStyleConfiguration {
 	public let values: [Partition.Value]
@@ -44,14 +38,14 @@ public struct PartitionStyleConfiguration {
 
 /// Type Erased PartitionStyle
 public struct AnyPartitionStyle: PartitionStyle {
-	private let _makeBody: (PartitionStyle.Configuration) -> AnyView
+	private let _makeBody: (Configuration) -> any View
 	
-	init<Style>(_ style: Style) where Style: PartitionStyle {
-		self._makeBody = style.makeBodyTypeErased
+	init(_ style: some PartitionStyle) {
+		self._makeBody = style.makeBody(configuration:)
 	}
 	
-	public func makeBody(configuration: PartitionStyle.Configuration) -> AnyView {
-		self._makeBody(configuration)
+	public func makeBody(configuration: Configuration) -> AnyView {
+		AnyView(_makeBody(configuration))
 	}
 }
 

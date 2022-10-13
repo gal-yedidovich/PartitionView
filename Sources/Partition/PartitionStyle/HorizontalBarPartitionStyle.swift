@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 /// The default style, presents the data in a horizontal bar.
 public struct HorizontalBarPartitionStyle: PartitionStyle {
 	public var radius: CGFloat = 8
@@ -18,7 +19,7 @@ public struct HorizontalBarPartitionStyle: PartitionStyle {
 			HStack(spacing: 0) {
 				if values.isEmpty {
 					Rectangle()
-						.foregroundColor(Color.gray.opacity(0.8))
+						.foregroundColor(.gray.opacity(0.8))
 				} else {
 					let width = geo.size.width - CGFloat(values.count - 1)
 					
