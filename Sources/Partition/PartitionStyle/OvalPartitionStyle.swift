@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 /// Presents the data in a stroked oval
 public struct OvalPartitionStyle: PartitionStyle {
 	public var lineWidth: CGFloat = 15

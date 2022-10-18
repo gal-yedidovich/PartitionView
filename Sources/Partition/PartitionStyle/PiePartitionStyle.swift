@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 /// Presents the data in a a pie chart
 public struct PiePartitionStyle: PartitionStyle {
 	public var pivot: CGFloat = 0
