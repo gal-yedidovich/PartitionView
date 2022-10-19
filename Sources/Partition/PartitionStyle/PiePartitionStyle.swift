@@ -114,13 +114,13 @@ struct PiePartitionStyle_Previews: PreviewProvider {
 			Partition([
 				.init(value: 0.8, color: .purple),
 			])
-				.partitionStyle(.pie(clockwise: false))
+			.partitionStyle(.pie(clockwise: false))
 			
 			Partition([
 				.init(value: 0.9, color: .yellow),
 			])
-				.border(.clear)
-				.partitionStyle(.pie(pivot: 0.3))
+			.border(color: .clear)
+			.partitionStyle(.pie(pivot: 0.3))
 			
 			AnimatedPieExample()
 		}
@@ -134,15 +134,15 @@ struct PiePartitionStyle_Previews: PreviewProvider {
 		
 		var body: some View {
 			let values: [Partition.Value] = expended
-				? [
-					.init(value: 0.2, color: .red),
-					.init(value: 0.4, color: .green),
-					.init(value: 0.4, color: .yellow)
-				]
-				: [
-					.init(value: 0.9, color: .red),
-					.init(value: 0.1, color: .blue)
-				]
+			? [
+				.init(value: 0.2, color: .red),
+				.init(value: 0.4, color: .green),
+				.init(value: 0.4, color: .yellow)
+			]
+			: [
+				.init(value: 0.9, color: .red),
+				.init(value: 0.1, color: .blue)
+			]
 			Partition(values)
 				.partitionStyle(.pie())
 				.contentShape(Circle())

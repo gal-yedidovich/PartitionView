@@ -18,7 +18,7 @@ public struct Partition: View {
 		style.makeBody(configuration: config)
 	}
 	
-	public func border(_ color: Color) -> Partition {
+	public func border(color: Color) -> Partition {
 		var copy = self
 		copy.config.borderColor = color
 		return copy

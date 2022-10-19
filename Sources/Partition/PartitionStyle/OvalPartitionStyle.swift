@@ -43,7 +43,7 @@ public struct OvalPartitionStyle: PartitionStyle {
 	
 	private func buildParts(_ config: Configuration) -> [PartitionRange] {
 		var parts: [PartitionRange] = []
-
+		
 		var current: CGFloat = .zero
 		for partition in config.values {
 			let end = partition.value
@@ -139,16 +139,16 @@ struct OvalPartitionStyle_Previews: PreviewProvider {
 		
 		var body: some View {
 			let values: [Partition.Value] = expended
-				? [
-					.init(value: 0.2, color: .red),
-					.init(value: 0.4, color: .green),
-					.init(value: 0.4, color: .yellow)
-				]
-				: [
-					
-					.init(value: 0.3, color: .red),
-					.init(value: 0.7, color: .green),
-				]
+			? [
+				.init(value: 0.2, color: .red),
+				.init(value: 0.4, color: .green),
+				.init(value: 0.4, color: .yellow)
+			]
+			: [
+				
+				.init(value: 0.3, color: .red),
+				.init(value: 0.7, color: .green),
+			]
 			VStack {
 				Partition(values)
 					.partitionStyle(.oval(lineWidth: 10))

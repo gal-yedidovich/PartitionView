@@ -53,27 +53,27 @@ struct VerticalBarPartitionStyle_Previews: PreviewProvider {
 				.init(value: 0.5, color: .red),
 				.init(value: 0.5, color: .secondary),
 			])
-				.frame(width: 30, height: 200)
+			.frame(width: 30, height: 200)
 			
 			Partition([
 				.init(value: 0.5, color: .red),
 				.init(value: 0.5, color: .primary),
 			])
-				.border(.clear)
-				.frame(width: 40, height: 200)
+			.border(color: .clear)
+			.frame(width: 40, height: 200)
 			
 			Partition([
 				.init(value: 0.8, color: .blue),
 			])
-				.partitionStyle(.verticalBar(radius: 0))
-				.frame(width: 30, height: 200)
+			.partitionStyle(.verticalBar(radius: 0))
+			.frame(width: 30, height: 200)
 			
 			Partition([
 				.init(value: 0.4, color: .green),
 				.init(value: 0.4, color: .yellow),
 				.init(value: 0.3, color: .red),
 			])
-				.frame(width: 30, height: 200)
+			.frame(width: 30, height: 200)
 		}
 		.partitionStyle(.verticalBar())
 		.padding(10)

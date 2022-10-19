@@ -1,6 +1,6 @@
 # PartitionView - Beautiful view to represent numeric values
 
-This library provides a single View, `Partition`, that can represent a single or multiple numeric values together for graphical purposes. 
+This library provides a single View, `Partition`, that can represent a single or multiple numeric values together as a bar or pie chart for graphical purposes.
 
 ## Installation
 PartitionView is a *Swift Package*. 
@@ -32,7 +32,7 @@ let values: [Partition.Value] = [
 ]
 
 Partition(values)
-	.border(.clear) //sets the color of the border
+	.border(color: .clear) //sets the color of the border
 	.frame(width: 200, height: 30)
 ```
 ![Custom Border Color](https://user-images.githubusercontent.com/29046630/196680532-abcfd063-59d5-435c-bcb6-c46974c3ee2f.png)
