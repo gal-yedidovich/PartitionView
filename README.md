@@ -19,8 +19,9 @@ let values: [Partition.Value] = [
 Partition(values)
 	.frame(width: 200, height: 30)
 ```
-The following code will present an horizonal bar with 2 values, one has 40% with color green, and the other has 60% with color orange 
+The following code will present an horizonal bar with 2 values, one has 40% with color green, and the other has 60% with color orange.
 
+![Horizontal Bar - parition view](https://user-images.githubusercontent.com/29046630/196681036-0d6e9002-625a-43c0-ac80-86dd332312ca.png)
 
 ### Basic Modifiers
 ```swift
@@ -34,6 +35,7 @@ Partition(values)
 	.border(.clear) //sets the color of the border
 	.frame(width: 200, height: 30)
 ```
+![Custom Border Color](https://user-images.githubusercontent.com/29046630/196680532-abcfd063-59d5-435c-bcb6-c46974c3ee2f.png)
 
 ### Styles
 ```swift
@@ -44,11 +46,12 @@ let values: [Partition.Value] = [
 ]
 
 Partition(values)
-	.partitionStyle(PieParitionStyle()) //presents the data as a "Pie chart"
+	.partitionStyle(PiePartitionStyle()) //presents the data as a "Pie chart"
 	.frame(width: 100, height: 100)
 ```
+![Pie chart style](https://user-images.githubusercontent.com/29046630/196680536-e22bf98d-f1bd-42a9-9965-0911bc1eb6a5.png)
 
-Other available styles:  `DefaultPartitionStyle`, `OvalPartitionStyle`
+Other available styles:  `DefaultPartitionStyle`, `VerticalBarPartitionStyle`, `OvalPartitionStyle`
 
 
 > Other examples are available in the source code's previews [link](https://github.com/gal-yedidovich/PartitionView/blob/main/Sources/Partition/Partition.swift)
