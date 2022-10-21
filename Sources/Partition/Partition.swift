@@ -8,14 +8,14 @@
 import SwiftUI
 public struct Partition: View {
 	private var config: PartitionStyleConfiguration
-	@Environment(\.partitionStyle) var style: AnyPartitionStyle
+	@Environment(\.partitionStyle) var style: any PartitionStyle
 	
 	public init(_ values: [Value]) {
 		config = .init(values: values)
 	}
 	
 	public var body: some View {
-		style.makeBody(configuration: config)
+		AnyView(style.makeBody(configuration: config))
 	}
 	
 	public func border(color: Color) -> Partition {

@@ -36,19 +36,6 @@ public struct PartitionStyleConfiguration {
 	public var borderColor: Color = .primary
 }
 
-/// Type Erased PartitionStyle
-public struct AnyPartitionStyle: PartitionStyle {
-	private let _makeBody: (Configuration) -> any View
-	
-	init(_ style: some PartitionStyle) {
-		self._makeBody = style.makeBody(configuration:)
-	}
-	
-	public func makeBody(configuration: Configuration) -> AnyView {
-		AnyView(_makeBody(configuration))
-	}
-}
-
 //MARK: - static style functions
 
 public extension PartitionStyle where Self == HorizontalBarPartitionStyle {
