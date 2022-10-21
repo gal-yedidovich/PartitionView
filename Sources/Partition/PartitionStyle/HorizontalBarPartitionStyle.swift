@@ -50,8 +50,8 @@ struct HotizontalBarPartitionStyle_Previews: PreviewProvider {
 			Partition([])
 				.frame(width: 200, height: 30)
 			Partition([
-				.init(value: 0.5, color: .red),
-				.init(value: 0.5, color: .secondary),
+				.init(value: 1/3, color: .red),
+				.init(value: 2/3, color: .secondary),
 			])
 			.frame(width: 200, height: 30)
 			

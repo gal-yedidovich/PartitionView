@@ -24,13 +24,13 @@ public struct VerticalBarPartitionStyle: PartitionStyle {
 					let width = geo.size.height - CGFloat(values.count - 1)
 					
 					let first = values[0]
-					first.color.frame(maxWidth: width * first.value)
+					first.color.frame(maxHeight: width * first.value)
 					
 					ForEach(values.dropFirst()) { value in
 						Divider()
 							.background(borderColor)
 						
-						value.color.frame(maxWidth: width * value.value)
+						value.color.frame(maxHeight: width * value.value)
 					}
 				}
 			}
@@ -50,8 +50,8 @@ struct VerticalBarPartitionStyle_Previews: PreviewProvider {
 			Partition([])
 				.frame(width: 30, height: 200)
 			Partition([
-				.init(value: 0.5, color: .red),
-				.init(value: 0.5, color: .secondary),
+				.init(value: 1/3, color: .red),
+				.init(value: 2/3, color: .secondary),
 			])
 			.frame(width: 30, height: 200)
 			
